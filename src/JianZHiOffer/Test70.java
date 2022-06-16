@@ -11,6 +11,17 @@ package JianZHiOffer;
 */
 public class Test70 {
     public int sumNums(int n) {
-
+        int res=0;
+        boolean a=n!=1 && (res=sumNums(n-1))>0;
+        return res+n;
     }
 }
+/*	class Solution {
+	    public int sumNums(int n) {
+
+	    	int res=0;
+
+	    	boolean a=n!=1 && (res=sumNums(n-1))>0;
+	    	return res+n;
+	    }
+	}*/
