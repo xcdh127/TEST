@@ -3,7 +3,7 @@
 
 如果有两个中间结点，则返回第二个中间结点。*/
 
-   class ListNode {
+ class ListNode {
       int val;
       ListNode next;
       ListNode() {}
