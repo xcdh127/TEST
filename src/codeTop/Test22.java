@@ -1,31 +1,37 @@
 package codeTop;
 
+import java.util.ArrayList;
+import java.util.List;
 
-/*输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。
-例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。
-示例：
-给定一个链表: 1->2->3->4->5, 和 k = 2.
-返回链表 4->5.
+/*数字 n 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 有效的 括号组合。
+示例 1：
+输入：n = 3
+输出：["((()))","(()())","(())()","()(())","()()()"]
+示例 2：
+输入：n = 1
+输出：["()"]
+提示：
+1 <= n <= 8
 */
 public class Test22 {
-    public ListNode getKthFromEnd(ListNode head, int k) {
-        ListNode dummy=new ListNode(0);
-        dummy.next=head;
-        //前指针
-        ListNode prev=dummy;
-        //后指针
-        ListNode next=dummy;
-        //当k大于等于0时，前指针向后指向，k--
-        while (k>=0){
-            prev=prev.next;
-            k--;
+    public List<String> generateParenthesis(int n) {
+        List<String> res = new ArrayList<>();
+        recur(res, n, n, "");
+        return res;
+    }
+
+    public void recur(List<String> res, int left, int right, String s) {
+        //当left和right剩余数量等于0时，此时已经生成一个合格的括号
+        if (left == 0 && right == 0) {
+            res.add(s);
         }
-        //当前指针不为空时，前指针和后指针都向后指向一位
-        while (prev!=null){
-            prev=prev.next;
-            next=next.next;
+        //当left大于0时，可以将一个左括号添加到结果字符串中
+        if (left > 0) {
+            recur(res, left - 1, right, s + "(");
         }
-        //返回后指针的后指针
-        return next.next;
+        //当left剩余的个数小于right时，此时可以将一个右括号添加到结果字符串中
+        if (left < right) {
+            recur(res, left, right - 1, s + ")");
+        }
     }
 }
