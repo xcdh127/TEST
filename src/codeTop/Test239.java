@@ -44,7 +44,7 @@ public class Test239 {
             //当i大于等于0时
             if (i >= 0) {
                 //当i大于0时，并且队列首部元素等于刚刚弹出队列的元素时
-                //将队列首部元素弹出
+                //将队列首部元素弹出，处理刚刚滑出窗口的数字
                 if (i > 0 && nums[i - 1] == queue.peekFirst()) {
                     queue.pollFirst();
                 }
