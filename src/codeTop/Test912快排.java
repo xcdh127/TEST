@@ -10,7 +10,7 @@ package codeTop;
 1 <= nums.length <= 5 * 104
 -5 * 104 <= nums[i] <= 5 * 104
 */
-public class Test912 {
+public class Test912快排 {
     public int[] sortArray(int[] nums) {
         int n=nums.length;
         quickSort(nums,0,n-1);
