@@ -32,7 +32,7 @@ lRUCache.get(4);    // 返回 4
 0 <= value <= 105
 最多调用 2 * 105 次 get 和 put
 */
-public class Test146 {
+public class Test146LRU {
 
 }
 
