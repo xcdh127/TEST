@@ -1,0 +1,44 @@
+package codeTop;
+/*给你一个整数 n ，求恰由 n 个节点组成且节点值从 1 到 n 互不相同的 二叉搜索树 有多少种？返回满足题意的二叉搜索树的种数。
+示例 1：
+输入：n = 3
+输出：5
+示例 2：
+输入：n = 1
+输出：1
+提示：
+1 <= n <= 19
+*/
+public class Test96 {
+    public int numTrees(int n) {
+        int[] dp=new int[n+1];
+        //由0个节点组成的二叉搜索树的种数
+        dp[0]=1;
+        //由1个节点组成的二叉搜索树的种数
+        dp[1]=1;
+        for (int i = 2; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                //节点数为i的不同二叉搜索树的个数：当前节点左侧节点种数 * 当前节点右侧节点种数
+                dp[i]+=dp[j-1]*dp[i-j];
+            }
+        }
+        //返回节点数为n的不同二叉搜索树的个数
+        return dp[n];
+    }
+}
+class Solution33 {
+    public int numTrees(int n) {
+        int[] dp=new int[n+1];
+        //由0个节点组成的二叉树的种数
+        dp[0]=1;
+        //由1个节点组成的二叉树的种数
+        dp[1]=1;
+        for (int i = 2; i <=n ; i++) {
+            for (int j = 1; j <=i ; j++) {
+                //当前节点左侧节点个数 乘 当前节点右侧节点个数
+                dp[i]+=dp[j-1]*dp[i-j];
+            }
+        }
+        return dp[n];
+    }
+}
