@@ -1,9 +1,7 @@
 package codeTop;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /*给你一个长度为 n 的整数数组 nums ，其中 nums 的所有整数都在范围 [1, n] 内，
 且每个整数出现 一次 或 两次 。
