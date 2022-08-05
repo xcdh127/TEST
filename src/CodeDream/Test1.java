@@ -24,14 +24,18 @@ import java.util.Map;
 */
 public class Test1 {
     public int[] twoSum(int[] nums, int target) {
+        //记录数字出现的位置
         Map<Integer, Integer> map = new HashMap<>();
         int n = nums.length;
         for (int i = 0; i < n; i++) {
+            //map中含有目标值-当前值的值，找到了两数之和等于target的数字
             if (map.containsKey(target - nums[i])) {
                 return new int[]{i, map.get(target - nums[i])};
             }
+            //将数字和下标存入map
             map.put(nums[i], i);
         }
+        //返回空数组
         return new int[0];
     }
 }
