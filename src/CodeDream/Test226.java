@@ -22,7 +22,6 @@ public class Test226 {
 
     public void recur(TreeNode root) {
         if (root == null) {
-
             return;
         }
         //根
