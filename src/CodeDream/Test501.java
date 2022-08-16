@@ -32,11 +32,13 @@ public class Test501 {
                 cur = cur.left;
             }
             cur = stack.pop();
+            //统计所有节点值出现的次数
             map.put(cur.val, map.getOrDefault(cur.val, 0) + 1);
             cur = cur.right;
         }
         int max = 0;
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            //将出现次数最多的节点值存入list
             if (entry.getValue() == max) {
                 list.add(entry.getKey());
             } else if (entry.getValue() > max) {
@@ -45,6 +47,7 @@ public class Test501 {
                 max = entry.getValue();
             }
         }
+        //返回数组
         return list.stream().mapToInt(i -> i).toArray();
     }
 }
