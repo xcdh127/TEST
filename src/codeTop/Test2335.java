@@ -1,8 +1,5 @@
 package codeTop;
 
-import com.sun.javafx.tk.quantum.PrimaryTimer;
-
-import java.util.Arrays;
 import java.util.PriorityQueue;
 
 /*现有一台饮水机，可以制备冷水、温水和热水。每秒钟，可以装满 2 杯 不同 类型的水或者 1 杯任意类型的水。
