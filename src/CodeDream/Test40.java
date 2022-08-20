@@ -41,6 +41,7 @@ public class Test40 {
     }
 
     public void recur(List<List<Integer>> res, LinkedList<Integer> subset, int[] candidates, int target, int index) {
+        //当和等于目标值时，将子集放进结果中
         if (sum == target) {
             res.add(new LinkedList<>(subset));
         }
@@ -53,7 +54,9 @@ public class Test40 {
             //将当前数字放进子集中
             sum += candidates[index];
             subset.addLast(candidates[index]);
+            //处理下一个位置
             recur(res, subset, candidates, target, index + 1);
+            //删除刚刚方进去的数字
             sum -= candidates[index];
             subset.removeLast();
         }
