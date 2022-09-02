@@ -51,7 +51,6 @@ public class Test496 {
             } else {
                 map.put(nums2[i], nums2[res[i] + i]);
             }
-
         }
         int[] ans = new int[nums1.length];
         //遍历数组1，根据map键值对赋值
