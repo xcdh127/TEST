@@ -10,22 +10,33 @@ package Jianzhioffer02;
 public class Test25 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode(0);
+        //当前指针指向当前节点
         ListNode cur = dummy;
+        //l1不为空并且l2不为空时
         while (l1 != null && l2 != null) {
+            //l1的值小于l2的值
             if (l1.val < l2.val) {
+                //当前节点的下一个
                 cur.next = l1;
                 l1 = l1.next;
-            } else {
+            }
+            //l2的值小于l1的值
+            else {
                 cur.next = l2;
                 l2 = l2.next;
             }
+            //当前节点的下一个节点
             cur = cur.next;
         }
+        //l1节点不为空时，当前节点指向l1节点
         if (l1 != null) {
             cur.next = l1;
-        } else {
+        }
+        //l2节点不为空时，当前节点指向l2节点
+        else {
             cur.next = l2;
         }
+        //返回新的头节点
         return dummy.next;
     }
 
