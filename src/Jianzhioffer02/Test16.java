@@ -18,10 +18,47 @@ package Jianzhioffer02;
 */
 public class Test16 {
     public double myPow(double x, int n) {
+        double res = 1.0;
         if (x == 0) {
             return 0.0;
         }
+        long b = n;
+        //处理指数为负数的情况
+        if (b < 0) {
+            b = -b;
+            x = 1 / x;
+        }
+        //当b大于0时
+        while (b > 0) {
+            //b为奇数时，结果再乘上x
+            if ((b & 1) == 1) {
+                res *= x;
+            }
+            //x的平方赋值给x
+            x = x * x;
+            //将b的值除以2
+            b >>= 1;
+        }
+        return res;
+    }
+}
 
-
+class Solution49 {
+    public double myPow(double x, int n) {
+        double res = 1;
+        if (x == 0.0) return 0.0;
+        long b = n;
+        if (b < 0) {
+            b = -b;
+            x = 1 / x;
+        }
+        while (b > 0) {
+            if ((b & 1) == 1) {
+                res *= x;
+            }
+            x = x * x;
+            b >>= 1;
+        }
+        return res;
     }
 }
