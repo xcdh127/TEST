@@ -39,6 +39,7 @@ public class Test16 {
             //将b的值除以2
             b >>= 1;
         }
+        //返回结果
         return res;
     }
 }
