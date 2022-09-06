@@ -25,8 +25,9 @@ public class Test13 {
         this.m = m;
         this.n = n;
         this.k = k;
+        //记录当前位置是否遍历过
         isVisited = new boolean[m][n];
-        return recur(m, n);
+        return recur(0, 0);
     }
 
     public int recur(int i, int j) {
@@ -34,10 +35,13 @@ public class Test13 {
         if (i < 0 || i >= m || j < 0 || j >= n || isVisited[i][j] || count(i) + count(j) > k) {
             return 0;
         }
+        //标记（i,j）位置已经遍历过
+        isVisited[i][j] = true;
         //返回（i,j）位置出可以走几个格子
         return 1 + recur(i + 1, j) + recur(i - 1, j) + recur(i, j + 1) + recur(i, j - 1);
     }
 
+    //计算数字的数位和
     public int count(int n) {
         int res = 0;
         while (n > 0) {
@@ -45,6 +49,7 @@ public class Test13 {
             res += yushu;
             n /= 10;
         }
+        //返回结果
         return res;
     }
 }
