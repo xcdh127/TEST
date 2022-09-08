@@ -29,7 +29,7 @@ public class Test33 {
         int n = nums.length;
         int i = 0;
         int j = n - 1;
-        while (i < j) {
+        while (i <= j) {
             int m = i + (j - i) / 2;
             if (nums[m] == target) {
                 return m;
@@ -52,32 +52,26 @@ public class Test33 {
                 }
             }
         }
+        //没有找到，返回-1
         return -1;
     }
 }
 
-class Solution52 {
+class Solution {
     public int search(int[] nums, int target) {
         int n = nums.length;
-        //双指针，一个指向数组的开头，一个指向数组的末尾
         int i = 0;
         int j = n - 1;
-        //当i小于j时
-        while (i < j) {
-            //求出中点位置
+        while (i <= j) {
             int m = i + (j - i) / 2;
-            //中点位置就是目标值时，返回m
             if (nums[m] == target) {
                 return m;
             }
             //目标值位于数组的前半部分
             if (nums[m] >= nums[0]) {
-                //当目标值位于0和m之间时，搜索数组的前半部分
-                if (nums[m] < target && nums[0] <= target) {
+                if (nums[m] > target && nums[0] <= target) {
                     j = m - 1;
-                }
-                //当目标值位于中点之后时，搜索数组的后半部分
-                else {
+                } else {
                     i = m + 1;
                 }
             }
@@ -90,7 +84,6 @@ class Solution52 {
                 }
             }
         }
-        //没有找到返回-1
         return -1;
     }
 }
