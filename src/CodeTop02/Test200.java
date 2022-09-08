@@ -33,15 +33,20 @@ public class Test200 {
         int m = grid.length;
         int n = grid[0].length;
         int count = 0;
+        //记录是否已经遍历过
         boolean[][] isVisited = new boolean[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
+                //当数组没有遍历过，并且当前的值为1时，使用深度优先搜搜
                 if (!isVisited[i][j] && grid[i][j] == '1') {
+                    //回溯
                     recur(grid, isVisited, i, j);
+                    //记录深度优先搜索的次数，就是岛屿的个数
                     count++;
                 }
             }
         }
+        //返回岛屿的个数
         return count;
     }
 
