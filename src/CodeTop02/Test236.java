@@ -27,6 +27,7 @@ public class Test236 {
     }
 
     public TreeNode recur(TreeNode root, TreeNode p, TreeNode q) {
+        //返回空
         if (root == null || root == p || root == q) {
             return root;
         }
