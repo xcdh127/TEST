@@ -2,9 +2,9 @@ package CodeTop02;
 
 public class Test1000 {
     public static void main(String[] args) {
-        String target = "ct";
-        char[] nums = new char[]{'c', 'a', 'c', 'b', 'c', 'c', 't'};
-        int[] arr = matchWord(target, nums);
+        String target = "shein";
+        char[] nums = new char[]{'c', 's', 'c', 'h', 'e', 'i', 'n'};
+        int[] arr = matchWord1(target, nums);
         for (int num : arr) {
             System.out.print(num + " ");
         }
@@ -35,17 +35,18 @@ public class Test1000 {
         }
         return new int[0];
     }
-    /*public static int[] matchWord(String targetWord, char[] inputArray) {
+
+    public static int[] matchWord1(String targetWord, char[] inputArray) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < inputArray.length; i++) {
             sb.append(inputArray[i]);
         }
 
         for (int i = 0; i < sb.length(); i++) {
-            for (int j = 0; j < i; j++) {
+            for (int j = i + 1; j < sb.length(); j++) {
                 StringBuilder temp = new StringBuilder(sb);
-                String substring = temp.substring(i, j);
-                if (sb.charAt(0) == targetWord.charAt(0) && targetWord.length() == get(substring, targetWord)) {
+                String substring = temp.substring(i, j + 1);
+                if (substring.charAt(0) == targetWord.charAt(0) && targetWord.length() == get(substring, targetWord)) {
                     return new int[]{i, j};
                 }
             }
@@ -67,5 +68,5 @@ public class Test1000 {
             }
         }
         return dp[m][n];
-    }*/
+    }
 }
