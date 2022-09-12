@@ -8,6 +8,7 @@ package CodeTop02;
 */
 public class Testoffer22 {
     public ListNode getKthFromEnd(ListNode head, int k) {
+        //前后双指针
         ListNode prev = head;
         ListNode cur = head;
         while (k > 0) {
