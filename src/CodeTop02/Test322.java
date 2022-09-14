@@ -28,10 +28,11 @@ public class Test322 {
         Arrays.fill(dp, amount + 1);
         //塞满容量为amount的背包的最少硬币个数数量为0
         dp[0] = 0;
-        //物品
+        //外层循环遍历物品
         for (int i = 0; i < n; i++) {
-            //背包
+            //内层循环遍历背包
             for (int j = coins[i]; j <= amount; j++) {
+                //当背包的容量大于硬币大小时，硬币个数在容量-硬币个数大小的基础上+1
                 if (j >= coins[i]) {
                     dp[j] = Math.min(dp[j], dp[j - coins[i]] + 1);
                 }
