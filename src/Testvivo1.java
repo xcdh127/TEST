@@ -1,5 +1,3 @@
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import java.util.*;
 
 public class Testvivo1 {
@@ -33,13 +31,7 @@ public class Testvivo1 {
             String str0 = Integer.toBinaryString(signal[i]);
             String str1 = Integer.toBinaryString(signal[i + 1]);
             Integer num0 = map.get(str0);
-            if (num0 == null) {
-                return -1;
-            }
             Integer num1 = map.get(str1);
-            if (num1 == null) {
-                return -1;
-            }
             list.add(num0 * 10 + num1);
         }
         Collections.sort(list);
