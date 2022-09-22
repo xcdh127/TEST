@@ -37,9 +37,11 @@ public class Test39 {
 
     public void recur(List<List<Integer>> res, LinkedList<Integer> subset, int[] candidates, int target, int sum, int index) {
         int n = candidates.length;
+        //index指到数组的末尾时结束
         if (index == n) {
             return;
         }
+        //当和等于target时，向结果中添加子集
         if (sum == target) {
             res.add(new LinkedList<>(subset));
         }
@@ -49,7 +51,7 @@ public class Test39 {
             recur(res, subset, candidates, target, sum, index + 1);
             sum += candidates[index];
             subset.addLast(candidates[index]);
-            //将当前数字放进子集
+            //将当前数字放进子集,因为数字可以无限制的放进子集中看，所以index位置不变
             recur(res, subset, candidates, target, sum, index);
             subset.removeLast();
         }
