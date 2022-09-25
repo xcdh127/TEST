@@ -23,19 +23,26 @@ intervals[i].length == 2
 public class Test56 {
     public int[][] merge(int[][] intervals) {
         int n = intervals.length;
+        //按照初始位置排序
         Arrays.sort(intervals, (a, b) -> (a[0] - b[0]));
         List<int[]> res = new ArrayList<>();
+        //从下标0开始整合区间
         int i = 0;
         while (i < n) {
+            //当前区间
             int[] temp = intervals[i];
+            //从后一个位置开始合并区间
             int j = i + 1;
             while (j < n && temp[1] >= intervals[j][0]) {
                 temp[1] = Math.max(intervals[j][1], temp[1]);
                 j++;
             }
+            //将j赋值给i
             i = j;
+            //将temp添加到结果中
             res.add(temp);
         }
+        //返回结果
         return res.toArray(new int[0][]);
     }
 }
