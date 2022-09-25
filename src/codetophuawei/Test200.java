@@ -34,11 +34,14 @@ public class Test200 {
         int n = grid[0].length;
         int count = 0;
         boolean[][] isVisited = new boolean[m][n];
+        //遍历所有位置
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                //注意是字符1
+                //注意是字符1，符合开始搜索的条件时，开始搜索
                 if (grid[i][j] == '1' && !isVisited[i][j]) {
+                    //广度优先搜索
                     bfs(grid, i, j, isVisited);
+                    //计数+1
                     count++;
                 }
             }
@@ -49,17 +52,27 @@ public class Test200 {
     public void bfs(char[][] grid, int i, int j, boolean[][] isVisited) {
         int m = grid.length;
         int n = grid[0].length;
+        //队列放数组
         Queue<int[]> queue = new LinkedList<>();
+        //方向数组
         int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
         queue.offer(new int[]{i, j});
+        //这个位置已经遍历过
         isVisited[i][j] = true;
         while (!queue.isEmpty()) {
+            //弹出此时要处理的位置
             int[] temp = queue.poll();
+            //遍历这个位置的四周
             for (int[] dir : dirs) {
+                //行
                 int row = temp[0] + dir[0];
+                //列
                 int col = temp[1] + dir[1];
+                //行列在数组范围内并且这个位置没有访问过，并且这个值为1
                 if (row >= 0 && row < m && col >= 0 && col < n && !isVisited[row][col] && grid[row][col] == '1') {
+                    //将新位置放进队列中
                     queue.offer(new int[]{row, col});
+                    //当前位置已经遍历
                     isVisited[row][col] = true;
                 }
             }
