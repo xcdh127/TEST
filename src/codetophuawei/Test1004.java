@@ -21,11 +21,15 @@ public class Test1004 {
         int n = nums.length;
         int res = 0;
         int left = 0;
+        //左窗口的位置
         int lsum = 0;
+        //右窗口的位置
         int rsum = 0;
         //窗口右边界
         for (int right = 0; right < n; right++) {
+            //将数组中的值反转累加求和
             rsum += 1 - nums[right];
+            //当左窗口的和小于右窗口的和-k时
             while (lsum < rsum - k) {
                 //计算左边窗口的和
                 lsum += 1 - nums[left];
