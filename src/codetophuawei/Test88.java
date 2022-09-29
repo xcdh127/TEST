@@ -31,7 +31,6 @@ nums2.length == n
 */
 public class Test88 {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-
         int[] copyOf = Arrays.copyOf(nums1, m);
         int i = 0;
         int j = 0;
