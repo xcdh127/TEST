@@ -28,11 +28,15 @@ public class Test402 {
         int n = num.length();
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < n; i++) {
+            //取出当前数字
             char number = num.charAt(i);
+            //栈不为空，并且待删除数字大于0，并且栈顶数字大于number
+            //目的是将大数字删除，留下小数字
             while (!stack.isEmpty() && k > 0 && stack.peek() > number) {
                 stack.pop();
                 k--;
             }
+            //将当前数字放进栈中
             stack.push(number);
         }
         //当没有删够k个字符时，继续删除
@@ -44,11 +48,13 @@ public class Test402 {
         boolean zero = true;
         //新建栈1
         Stack<Character> stack1 = new Stack();
+        //当栈不为空时，将栈中的数字放进栈1中
         while (!stack.isEmpty()) {
             stack1.push(stack.pop());
         }
         //栈1不为空时
         while (!stack1.isEmpty()) {
+            //栈1中的数字弹出
             char number = stack1.pop();
             //去除前导0
             if (zero && number == '0') {
@@ -56,6 +62,7 @@ public class Test402 {
             }
             //非前导0，就将标志位置为false
             zero = false;
+            //向字符串中拼接数字
             sb.append(number);
         }
         return sb.length() == 0 ? "0" : sb.toString();
